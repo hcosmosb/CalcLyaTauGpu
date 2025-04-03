@@ -4,7 +4,7 @@ This repository contains C++/CUDA scripts for executing calculations on 3D grid 
 Specifically, the code calculates Lyα opacity in a simulated universe, which will be measured by upcoming near-future astronomical surveys.
 
 The calculation involves an immense number of simple operations, making GPUs an ideal choice for execution. 
-Also, uses OpenMP parallelization appropriately to accelerate CPU-handled parts.
+I also implemented OpenMP parallelization appropriately to accelerate CPU-handled parts.
 I have confirmed that the implementation shared here is at least 100 times faster than a CPU-only serial calculation. 
 I am sharing the code for those interested in performing similar computations.
 
