@@ -4,7 +4,8 @@ This repository contains C++/CUDA scripts for executing calculations on 3D grid 
 Specifically, the code calculates Lyα opacity in a simulated universe, which will be measured by upcoming near-future astronomical surveys.
 
 The calculation involves an immense number of simple operations, making GPUs an ideal choice for execution. 
-I have confirmed that the implementation shared here is at least 100 times faster than a CPU-only calculation. 
+Also, uses OpenMP parallelization appropriately to accelerate CPU-handled parts.
+I have confirmed that the implementation shared here is at least 100 times faster than a CPU-only serial calculation. 
 I am sharing the code for those interested in performing similar computations.
 
 Since the scripts are written in CUDA, an NVIDIA GPU and a compatible compiler (nvcc) are required to run the code.
@@ -19,8 +20,15 @@ Since the scripts are written in CUDA, an NVIDIA GPU and a compatible compiler (
 
 [2] main.cpp: main driver 
 
-[3] file_reader.cpp and file_reader.hpp: file reader
+[3] file_reader.cpp & file_reader.hpp: file reader
 
 - Written for the CoDa simulations. Users are encouraged to edit these files for their own simulation format.
 
-- 
+[4] calcTrGPU.cu: Cuda script for the key calculation
+
+[5] constants.cpp & constants.hpp: Physical constants required for calculation
+
+[6] sig_a_app.cpp: Lya cross section as the function of wavelength
+
+[7] checkGPUs.cpp & checkGPUs.hpp: Utility function that checks availble GPUs on the system
+
